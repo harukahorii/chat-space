@@ -42,13 +42,26 @@ Things you may want to cover:
 |encrypted_password|string|null: false|
 |created_at|datetime|null: false|
 |updated_at|datetime|null: false|
+|group_id|integer|null: false, foreign_key: true|
 
 ### Index
 - add_index :users, :email, unique: true
 - add_index :users, :name, unique: true
 
 ### Association
+- has_many :members
 - has_many :groups, through: :members
 - belongs_to :group, through: :members
 
+## messagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|body|text|
+|image|string|
+|gruop_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :group
+- belongs_to :user
 
