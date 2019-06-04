@@ -29,7 +29,26 @@ Things you may want to cover:
 |user_id|integer|null: false, foreign_key: true|
 |gruop_id|integer|null: false, foreign_key: true|
 
-### Associaton
+### Association
 - belongs_to :group
 - belongs_to :user
+
+
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|
+|email|string|null: false|
+|encrypted_password|string|null: false|
+|created_at|datetime|null: false|
+|updated_at|datetime|null: false|
+
+### Index
+- add_index :users, :email, unique: true
+- add_index :users, :name, unique: true
+
+### Association
+- has_many :groups, through: :members
+- belongs_to :group, through: :members
+
 
