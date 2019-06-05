@@ -49,10 +49,10 @@ Things you may want to cover:
 - add_index :users, :name, unique: true
 
 ### Association
+- has_many :messages
 - has_many :members
 - has_many :groups, through: :members
-- belongs_to :group, through: :members
-- has_many :messages
+
 
 ## messagesテーブル
 |Column|Type|Options|
@@ -78,8 +78,7 @@ Things you may want to cover:
 |user_id|integer|null: false, foreign_key: true|
 |message_id|integer|null: false, foreign_key: true|
 
-### Index
-- has_many :members
-- has_many :usres, through: :members
-- belongs_to :user, through: :members
+### Association
 - has_many :messages
+- has_many :members
+- has_many :users, through: :members
