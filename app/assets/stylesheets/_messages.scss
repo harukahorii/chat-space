@@ -69,8 +69,36 @@
   }
 }
 
+.chat-main {
+  width: calc(100vw - 300px);
+  float: left;
+}
 
 .main-header {
   height: 100px;
   border-bottom: 1px solid #eeeeee;
+  padding: 0 40px;
+  
+}
+
+
+
+.current-group {
+  &__name {
+    font-size: 20px;
+    padding-top: 35px;
+    color: #333333;
+  }
+}
+
+.member-list {
+  margin-top: 15px;
+  font-size: 12px;
+  color: #999999;
+  float: left;
+  display: list-item;
+  &__member {
+    display: list-item;
+  }
+
 }
