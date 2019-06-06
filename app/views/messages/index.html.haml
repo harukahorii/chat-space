@@ -13,7 +13,8 @@
         %li.user-menu__new-group
           = link_to '' do
             = fa_icon "cog"
-    .groups
+  .groups
+    = render partial: "group_name.html.haml"
   .chat-main
     .main-header
     .messages
