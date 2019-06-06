@@ -57,10 +57,15 @@
 }
 
 .group {
+  height: 91px;
+  color: #ffffff;
+  font-weight: bold;
   &__group-name {
     margin-top: 20px;
     font-size: 15px;
-    font-weight: bold;
-    color: #ffffff;
+  }
+  &__latest-message {
+    font-size: 11px;
+    margin-top: 5px;
   }
 }
