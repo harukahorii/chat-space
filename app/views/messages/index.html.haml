@@ -6,14 +6,14 @@
       %p.side-header__user-name
         test-user
       %ul.user-menu
-        %li.user-menu__edit-user
-          = link_to '' do
+        %li
+          = link_to '', class: "user-menu__edit-user" do
             = fa_icon "edit"
-        %li.user-menu__new-group
-          = link_to '' do
+        %li
+          = link_to '', class: "user-menu__new-group" do
             = fa_icon "cog"
-  .groups
-    = render partial: "group_name.html.haml"
+    .groups
+      = render partial: "group_name.html.haml"
   .chat-main
     .main-header
       .current-group

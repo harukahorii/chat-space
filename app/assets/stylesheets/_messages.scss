@@ -14,4 +14,38 @@
 .chat-side {
   width: 300px;
   float: left;
+
+}
+
+
+
+.side-header {
+  height: 82px;
+  background-color: #253141;
+  padding: 0 20px;
+  font-size: 16px;
+  color: #ffffff;
+  &__user-name {
+    font-weight: bold;
+    line-height: 82px;
+    float: left;
+  }
+}
+
+.user-menu {
+  line-height: 82px;
+  &__edit-user {
+    color: #ffffff;
+    margin-left: 150px;
+    display: list-item;
+    float: left;
+    
+  }
+  &__new-group {
+    color: #ffffff;
+    margin: 0;
+    display: list-item;
+    float: left;
+    
+  }
 }
