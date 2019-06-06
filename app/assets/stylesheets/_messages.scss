@@ -8,7 +8,7 @@
 
 .wrapper {
   width: 100vw;
-  height: 100vw;;
+  height: 760px;
 }
 
 .chat-side {
@@ -47,5 +47,20 @@
     display: list-item;
     float: left;
     
+  }
+}
+
+.groups {
+  padding: 20px;
+  height: 663px;
+  background-color: #2f3e51;
+}
+
+.group {
+  &__group-name {
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #ffffff;
   }
 }
