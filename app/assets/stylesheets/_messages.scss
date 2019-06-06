@@ -8,7 +8,7 @@
 
 .wrapper {
   width: 100vw;
-  height: 760px;
+  height: 100vh;
 }
 
 .chat-side {
@@ -33,7 +33,7 @@
 }
 
 .user-menu {
-  line-height: 82px;
+  line-height: 100px;
   &__edit-user {
     color: #ffffff;
     margin-left: 150px;
@@ -140,3 +140,14 @@
   }
 }
 
+.fa-image {
+  position: absolute;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.image-input {
+  display: none;
+  position: absolute;
+  cursor: pointer;
+}

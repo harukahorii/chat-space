@@ -9,9 +9,11 @@
         %li
           = link_to '', class: "user-menu__edit-user" do
             = fa_icon "edit"
+            %span<>
         %li
           = link_to '', class: "user-menu__new-group" do
             = fa_icon "cog"
+            %span<>
     .groups
       = render partial: "group_name.html.haml"
   .chat-main
@@ -35,8 +37,8 @@
         .input-box
           = text_field :text, placeholder: "type a message", class: "input-box__text", type: "text"
           %label.upload-label{for: "upload-icon"}
-            %i.fa.fa-picture-o
-            = file_field :image, id: "upload-icon"
+            %i.fa.fa-image
+            =file_field :image, id: "upload-icon", class: "image-input"
         = link_to '' do
           .new-message__submit-btn
             Send
