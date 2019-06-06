@@ -31,4 +31,13 @@
           Edit
     .messages
       = render partial: "message_info.html.haml"
-    .forms
+    .form
+      %form.new-message
+        .input-box
+          = text_field :text, placeholder: "type a message", class: "input-box__text", type: "text"
+          %label.upload-label{for: "upload-icon"}
+            %i.fa.fa-picture-o
+            = file_field :image, id: "upload-icon"
+        = link_to '' do
+          .new-message__submit-btn
+            Send
