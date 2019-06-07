@@ -142,23 +142,53 @@
   }
 }
 
+
+.input-box {
+  position: relative;
+  width: 83%;
+}
+
+#text_name {
+  height: 50px;
+  width: 100%;
+  padding: 0 40px 0 10px;
+  color: #434a54;
+  border-style: none;
+  
+}
+
 .fa-image {
-  position: absolute;
-  margin-top: 5px;
-  margin-left: 20px;
+  float: right;
+  cursor: pointer;
+  margin-right: -40px;
+  margin-top: -35px;
+  z-index: 2;
+  position: relative;
 }
 
 .image_upload_icon {
   display: none;
-  position: absolute;
-  cursor: pointer;
+  
 }
 
 .form {
   height: 50px;
   padding: 20px 40px;
   background-color: #ddd;
-  width: 100%;
+  width: 93%;
   position: absolute;
   bottom: 0;
+}
+
+.new-message__submit-btn {
+  display: inline-block;
+  float: right;
+  margin-top: -50px;
+  border: solid 1px #38aef0;
+  background-color: #38aef0;
+  color: #ffffff;
+  cursor: pointer;
+  height: 50px;
+  padding: 0 30px;
+  line-height: 50px;
 }

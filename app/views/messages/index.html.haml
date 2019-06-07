@@ -35,8 +35,8 @@
     .form
       %form.new-message
         .input-box
-          = text_field :text, placeholder: "type a message", class: "input-box__text", type: "text"
-          %label.upload-label{for: "upload_icon"}
+          = text_field :text, :name
+          %label.upload_label{for:"image_upload_icon"}
             %i.fa.fa-image
             = file_field :image, :upload_icon, class: 'image_upload_icon'
         = link_to '' do
