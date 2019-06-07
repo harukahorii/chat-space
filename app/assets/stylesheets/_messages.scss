@@ -70,8 +70,10 @@
 }
 
 .chat-main {
-  width: calc(100vw - 300px);
+  height: 100%;
+  width: calc(100% - 300px);
   float: left;
+  position: relative;
 }
 
 .main-header {
@@ -146,8 +148,17 @@
   margin-left: 20px;
 }
 
-.image-input {
+.image_upload_icon {
   display: none;
   position: absolute;
   cursor: pointer;
+}
+
+.form {
+  height: 50px;
+  padding: 20px 40px;
+  background-color: #ddd;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
