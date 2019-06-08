@@ -46,8 +46,8 @@
       content: "";
       clear: both;
       display: block;
-    }
-
+      }
+    
     .chat-group-form__field--left {
       float: left;
       width: 30%;
@@ -97,11 +97,11 @@
       display: inline-block;
       cursor: pointer;
 
-      &.chat-group-user__btn--add {
+      &.chat-group-user--add {
         color: #38aef0;
       }
 
-      &.chat-group-user__btn--remove {
+      &.chat-group-user--remove {
         color: #f05050;
       }
     }
