@@ -1,6 +1,8 @@
 .chat-group-form
   %h1 新規チャットグループ
-  %form#new_chat_group.new_chat_group{"accept-charset" => "UTF-8", :action => "/chat_groups", :method => "post"}
+  = form_for @group do |f|
+    - if @group.errors.any?
+      .chat-group-from__err
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         %label.chat-group-form__label{:for => "chat_group_name"} グループ名
