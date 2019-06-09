@@ -1,19 +1,7 @@
 -# .flash-box
 .wrapper
   = render partial:'side_bar.html.haml'
-  .chat-side
-    .side-header
-      %p.side-header__user-name
-        test-user
-      %ul.user-menu
-        %li
-          = link_to 'groups/new', class: "user-menu__edit-user" do
-            = fa_icon "edit"
-            %span<>
-        %li
-          = link_to '', class: "user-menu__new-group" do
-            = fa_icon "cog"
-            %span<>
+  
   .chat-main
     .main-header
       .current-group
