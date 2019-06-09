@@ -1,4 +1,7 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_user!, only: :search
+  def index
+  end
   def new
     @group = Group.new
     @group.users << current_user

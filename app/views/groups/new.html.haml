@@ -2,16 +2,16 @@
   %h1 新規チャットグループ
   = form_for @group do |f|
     - if @group.errors.any?
-      .chat-group-from__errors
-        %h2= "#{@gruop.errors.full_messages.count}件のエラーが発生しました。"
+      .chat-group-form__errors
+        %h2= "#{@group.errors.full_messages.count}件のエラーが発生しました。"
         %ul
-          - @group.erros.full_messages.each do |message|
+          - @group.errors.full_messages.each do |message|
             %li= message
-    .chat-group-form__field.clearfix
+    .chat-group-form__field
       .chat-group-form__field--left
         = f.label :name, class: 'chat-group-form__label'
       .chat-group-form__field--right
-        = f.text_field :name, class: 'chat__gruop_name chat-gruop-form__input', placeholder: 'グループ名を入力してください'
+        = f.text_field :name, class: 'chat__group_name chat-group-form__input', placeholder: 'グループ名を入力してください'
     .chat-group-form__field.clearfix
       / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
       /
@@ -41,4 +41,4 @@
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
-        = f.submit class: 'chat-group-from__action-btn'
+        = f.submit class: 'chat-group-form__action-btn'
