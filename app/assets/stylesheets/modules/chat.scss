@@ -37,6 +37,10 @@
         color: $light_blue;
         text-decoration: none;
       }
+      &__button-good {
+        color: $light_blue;
+        text-decoration: none
+      }
     }
   }
 
@@ -87,7 +91,7 @@
       background-color: $white;
       float: left;
       height: 50px;
-      // padding-right: 10px;
+      padding-right: 10px;
       &__image {
         font-size: 20px;
         line-height: 50px;

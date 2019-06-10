@@ -14,7 +14,7 @@
             = group_user.user.name
     .right-header
       %a.right-header__button
-        = link_to edit_group_path(@group.id) do
+        = link_to edit_group_path(@group.id), class: "right-header__button-good" do
           Edit
 
   .messages
@@ -27,4 +27,5 @@
         = f.label :image, class: 'form__mask__image' do
           = fa_icon 'picture-o', class: 'icon'
           = f.file_field :image, class: 'hidden'
+      .from__good
         = f.submit 'Send', class: 'form__submit'
