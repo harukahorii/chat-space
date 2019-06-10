@@ -1,32 +1,30 @@
 -# .flash-box
 .wrapper
   = render 'devise/shared/side_bar'
-  
-  -# .chat
-  -#   .header
-  -#     .left-header
-  -#       %h2.left-header__title
-  -#         test-group
-  -#       %ul.left-header__members
-  -#         Member:
-  -#         %li.member
-  -#           test-user
-  -#         %li.member
-  -#           good-user
-  -#     = link_to '' do
-  -#       .right-header
-  -#         .right-header__button
-  -#           Edit
-  -#   .messages
-  -#     = render partial: "message_info.html.haml"
-  -#   .form
-  -#     %form.form__message
-  -#       .form__mask
-  -#         = text_field :text, :name, :placeholder => "type a message"
-  -#         %label.form__image{for:"image_upload_icon"}
-  -#           %i.fa.fa-image
-  -#           = file_field :image, :upload_icon, class: 'hidden'
-  -#       = link_to '' do
-  -#         .form__submit
-  -#           Send
 
+.chat
+  .header
+    .left-header
+      %h2.left-header__title
+        = @group.name
+      %ul.left-header__members
+        Member:
+        %li.member
+          - @group.group_users.each do |group_user|
+            = group_user.user.name
+    .right-header
+      %a.right-header__button
+        = link_to edit_group_path(@group.id) do
+          Edit
+
+  .messages
+    = render @messages  
+  
+  .form
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = fa_icon 'picture-o', class: 'icon'
+          = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
