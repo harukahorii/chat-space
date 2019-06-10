@@ -1,5 +1,7 @@
 .chat {
   width: calc(100% - 300px);
+  float: left;
+  position: relative;
   .header {
     box-sizing: border-box;
     height: 100px;
@@ -12,7 +14,7 @@
         margin-top: 35px;
       }
       &__members {
-        @include flexbox;
+        @include clearfix();
         color: $light_gray;
         font-size: 12px;
         margin-top: 15px;
@@ -79,6 +81,7 @@
       width: calc(100% - 150px);
     }
     &__mask {
+      width: 83%;
       background-color: $white;
       float: left;
       height: 50px;
@@ -100,6 +103,7 @@
       height: 50px;
       margin-left: 15px;
       padding: 0 30px;
+      line-height: 50px;
     }
   }
 }
