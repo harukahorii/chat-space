@@ -1,43 +1,31 @@
 -# .flash-box
 .wrapper
-  .chat-side
-    .side-header
-      %p.side-header__user-name
-        test-user
-      %ul.user-menu
-        %li
-          = link_to 'groups/new', class: "user-menu__edit-user" do
-            = fa_icon "edit"
-            %span<>
-        %li
-          = link_to '', class: "user-menu__new-group" do
-            = fa_icon "cog"
-            %span<>
-    .groups
-      = render partial: "group_name.html.haml"
-  .chat-main
-    .main-header
-      .current-group
-        %h2.current-group__name
-          test-group
-        %ul.member-list
-          Member:
-          %li.member-list__member
-            test-user
-          %li.member-list__member
-            good-user
-      = link_to '' do
-        .main-header__edit-btn
+  = render 'devise/shared/side_bar'
+
+.chat
+  .header
+    .left-header
+      %h2.left-header__title
+        = @group.name
+      %ul.left-header__members
+        Member:
+        %li.member
+          - @group.group_users.each do |group_user|
+            = group_user.user.name
+    .right-header
+      %a.right-header__button
+        = link_to edit_group_path(@group.id), class: "right-header__button-good" do
           Edit
-    .messages
-      = render partial: "message_info.html.haml"
-    .form
-      %form.new-message
-        .new-message__input-box
-          = text_field :text, :name, :placeholder => "type a message"
-          %label.upload_label{for:"image_upload_icon"}
-            %i.fa.fa-image
-            = file_field :image, :upload_icon, class: 'image_upload_icon'
-        = link_to '' do
-          .new-message__submit-btn
-            Send
+
+  .messages
+    = render @messages  
+  
+  .form
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = fa_icon 'picture-o', class: 'icon'
+          = f.file_field :image, class: 'hidden'
+      .from__good
+        = f.submit 'Send', class: 'form__submit'
