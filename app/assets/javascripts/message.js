@@ -15,17 +15,18 @@ $(document).on('turbolinks:load', function(){
                       <p class="lower-message__content">
                         ${message.content}
                       </p>
-                      <img class="lower-message__image" src="${message.image}" alt="Dsc01435">
+                      <img class="lower-message__image" src="${message.image}" alt="">
                     </div>
                   </div>`
       return html;
     }
-    $('.mesaages').animate({scrollTop: $('.mesaages').height()}, 1500);
-    $('.form__submit').attr('disabled', false);
+   
+    
     $('#new_message').on('submit', function(e) {
       e.preventDefault();
       var formData = new FormData(this);
       var url = $(this).attr('action')
+      console.log(url);
       $.ajax({
         url: url,
         type: 'POST',
@@ -35,8 +36,12 @@ $(document).on('turbolinks:load', function(){
         contentType: false
       })
       .done(function(data) {
+        console.log(data);
         var html = buildMESSAGES(data);
-        $('.mesaages').append(html)
+        console.log(html)
+        $('.messages').append(html)
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+        $('.form__submit').attr('disabled', false);
       })
       .fail(function(){
         alert('error');
