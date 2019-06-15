@@ -26,7 +26,6 @@ $(document).on('turbolinks:load', function(){
       e.preventDefault();
       var formData = new FormData(this);
       var url = $(this).attr('action')
-      console.log(url);
       $.ajax({
         url: url,
         type: 'POST',
@@ -36,11 +35,10 @@ $(document).on('turbolinks:load', function(){
         contentType: false
       })
       .done(function(data) {
-        console.log(data);
         var html = buildMESSAGES(data);
-        console.log(html)
         $('.messages').append(html)
-        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+        $('.new_message')[0].reset();
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast')
         $('.form__submit').attr('disabled', false);
       })
       .fail(function(){
