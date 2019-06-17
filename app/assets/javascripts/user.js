@@ -1,15 +1,19 @@
 $(function() {
 
-  var user_list = $(".chat-group-form__field.clearfix");
+  var user_list = $("#user-search-result");
 
   function appendUser(user) {
-    var html = `<p class="chat-group-user__name">${ user.name }</p>
-                <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${ user.id }" data-user-name="${ user.name }">追加</div>`
+    var html = `<div class="chat-group-user clearfix" id='chat-group-user-${user.id}'>
+                  <p class="chat-group-user__name">${ user.name }</p>
+                  <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${ user.id }" data-user-name="${ user.name }">追加</div>
+                </div>`
     user_list.append(html);
   }
 
   function appendErrMsgToHTML(msg) {
-    var html = `<p class="chat-group-user__name">${ msg }</p>`
+    var html = `<div class="chat-group-user clearfix" id='chat-group-user-${user.id}'>
+                  <p class="chat-group-user__name">${ msg }</p>
+                </div>`
     user_list.append(html);
   }
 
@@ -24,7 +28,7 @@ $(function() {
     })
 
     .done(function(users) {
-      $(".chat-group-form__field.clearfix").empty();
+      $("#user-search-resul").empty();
       if (users.length !== 0) {
         users.forEach(function(user){
           appendUser(user);
@@ -36,6 +40,10 @@ $(function() {
     })
     .fail(function() {
       alert('ユーザー検索に失敗しました');
+    })
+
+    $(document).on("click", "user-search-add", function() {
+      
     })
   });
 });
