@@ -2,8 +2,11 @@ $(document).on('turbolinks:load', function(){
   $(function() {
 
     function buildMESSAGES(message) {
+
+      image = (message.image) ? `<img class= "lower-message__image" src=${message.image} >` : "";
+
       var html = `<div class="message">
-                    <div class="upper-message">
+                    <div class="upper-message" data-id="${message.id}">
                       <div class="upper-message__user-name">
                         ${message.user_name}
                       </div>
@@ -15,7 +18,7 @@ $(document).on('turbolinks:load', function(){
                       <p class="lower-message__content">
                         ${message.content}
                       </p>
-                      <img class="lower-message__image" src="${message.image}" alt="">
+                      ${image}
                     </div>
                   </div>`
       return html;
@@ -46,20 +49,21 @@ $(document).on('turbolinks:load', function(){
     });
 
     var reloadMessages = (function() {
-      last_message_id = $('.mesaage:last').data("message-id");
+      var last_message_id = $('.mesaage').filter(":last").data("message-id");
       $.ajax({
-        url: "/groups/group_id/api/messages",
+        url: "/api/messages",
         type: 'get',
         dataType: 'json',
         data: {id: last_message_id}
       })
       .done(function(messages) {
-        console.log('success');
+        var insertHTML = '';
+        
       })
       .fail(function(){
         console.log('error');
       })
-    }
+    })
 
   });
 });
