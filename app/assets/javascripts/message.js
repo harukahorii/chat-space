@@ -20,8 +20,7 @@ $(document).on('turbolinks:load', function(){
                   </div>`
       return html;
     }
-   
-    
+
     $('#new_message').on('submit', function(e) {
       e.preventDefault();
       var formData = new FormData(this);
@@ -45,5 +44,22 @@ $(document).on('turbolinks:load', function(){
         alert('error');
       })
     });
+
+    var reloadMessages = (function() {
+      last_message_id = $('.mesaage:last').data("message-id");
+      $.ajax({
+        url: "/groups/group_id/api/messages",
+        type: 'get',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function(messages) {
+        console.log('success');
+      })
+      .fail(function(){
+        console.log('error');
+      })
+    }
+
   });
 });
