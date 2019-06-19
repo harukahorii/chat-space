@@ -2,11 +2,11 @@ $(document).on('turbolinks:load', function(){
   $(function() {
 
     function buildMESSAGES(message) {
+      var image = (message.image)? `<img class="lower-message__image" src="${message.image}" >`: "";
+      console.log(message)
 
-      image = (message.image) ? `<img class= "lower-message__image" src=${message.image} >` : "";
-
-      var html = `<div class="message">
-                    <div class="upper-message" id="${message.id}">
+      var html = `<div class="message" data-id="${message.id}">
+                    <div class="upper-message">
                       <div class="upper-message__user-name">
                         ${message.user_name}
                       </div>
@@ -18,8 +18,8 @@ $(document).on('turbolinks:load', function(){
                       <p class="lower-message__content">
                         ${message.content}
                       </p>
-                      ${image}
                     </div>
+                    ${image}
                   </div>`
       return html;
     }
@@ -62,8 +62,9 @@ $(document).on('turbolinks:load', function(){
           messages.forEach(function(message) {
             insertHTML = buildMESSAGES(message);
             $('.messages').append(insertHTML);
+            $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
           })
-          $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast')
+          
         })
         .fail(function(){
           alert('自動更新に失敗しました');
