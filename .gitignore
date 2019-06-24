@@ -18,4 +18,5 @@
 public/uploads/*
 user-materials/
 .DS_Store/
+config/secrets.yml
 
