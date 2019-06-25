@@ -52,7 +52,7 @@ $(function() {
       alert('ユーザー検索に失敗しました');
     })
 
-    $("#user-search-result").on('click', '.user-search-add', function() {
+    $("#user-search-result").on("click", ".user-search-add", function() {
       var id = $(this).data('user-id');
       var name = $(this).data('user-name');
       var addHTML = buildHTML(id, name);
@@ -60,8 +60,11 @@ $(function() {
       $(this).parent('.chat-group-user').remove();
     })
 
-    $("#chat-group-users").on('click', '.chat-group-user__btn--remove', function() {
+    $("#chat-group-users").on("click", ".chat-group-user__btn--remove", function() {
       $(this).parent().remove();
     })
   });
+  $(".chat-group-user__btn--remove").on("click", function() {
+    $(this).parent().remove();
+  })
 });
