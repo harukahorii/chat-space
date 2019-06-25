@@ -11,7 +11,7 @@ $(function() {
   }
 
   function appendErrMsgToHTML(msg) {
-    var html = `<div class="chat-group-user clearfix">
+    var html = `<div class="chat-group-user clearfix"id="${id}" >
                   <p class="chat-group-user__name">${ msg }</p>
                 </div>`
     user_list.append(html);
@@ -53,7 +53,7 @@ $(function() {
       alert('ユーザー検索に失敗しました');
     })    
   });
-  
+
   $("#user-search-result").on("click", ".chat-group-user__btn--add", function() {
     console.log("abc")
     var id = $(this).data('user-id');
