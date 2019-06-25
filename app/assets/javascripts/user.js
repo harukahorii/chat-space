@@ -11,7 +11,7 @@ $(function() {
   }
 
   function appendErrMsgToHTML(msg) {
-    var html = `<div class="chat-group-user clearfix" id='${id}'>
+    var html = `<div class="chat-group-user clearfix">
                   <p class="chat-group-user__name">${ msg }</p>
                 </div>`
     user_list.append(html);
@@ -51,21 +51,20 @@ $(function() {
     })
     .fail(function() {
       alert('ユーザー検索に失敗しました');
-    })
-
-    $("#user-search-result").on("click", ".user-search-add", function() {
-      var id = $(this).data('user-id');
-      var name = $(this).data('user-name');
-      var addHTML = buildHTML(id, name);
-      $('#chat-group-users').append(addHTML);
-      $(this).parent('.chat-group-user').remove();
-    })
-
-    $("#chat-group-users").on("click", ".chat-group-user__btn--remove", function() {
-      $(this).parent().remove();
-    })
+    })    
   });
-  $(".chat-group-user__btn--remove").on("click", function() {
+  
+  $("#user-search-result").on("click", ".chat-group-user__btn--add", function() {
+    console.log("abc")
+    var id = $(this).data('user-id');
+    var name = $(this).data('user-name');
+    var addHTML = buildHTML(id, name);
+    $('#chat-group-users').append(addHTML);
+    $(this).parent('.chat-group-user').remove();
+  })
+
+  $("#chat-group-users").on("click", ".chat-group-user__btn--remove", function() {
     $(this).parent().remove();
   })
+
 });
