@@ -11,14 +11,14 @@ $(function() {
   }
 
   function appendErrMsgToHTML(msg) {
-    var html = `<div class="chat-group-user clearfix" id='chat-group-user-${user.id}'>
+    var html = `<div class="chat-group-user clearfix" id='${id}'>
                   <p class="chat-group-user__name">${ msg }</p>
                 </div>`
     user_list.append(html);
   }
 
   function buildHTML(id, name) {
-    var html = `<div class="chat-group-user clearfix js-chat-member" id="chat-group-user-${id}">
+    var html = `<div class="chat-group-user clearfix js-chat-member" id="${id}">
                   <input name="group[user_ids][]" type="hidden" value="${id}">
                   <p class="chat-group-user__name">${ name }</p>
                   <a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn">削除</a>
